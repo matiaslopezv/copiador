@@ -1,0 +1,52 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 8px;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+#fileInput {
+    margin-bottom: 20px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #db1717;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #078f88;
+}
+td {
+    cursor: pointer;
+    background-color: #50c446;
+}
+td:hover {
+    background-color: hsl(312, 94%, 50%);
+}
+
+/* Estilo para el mensaje de alerta */
+#alertMessage {
+    display: none; /* Inicialmente oculto */
+    background-color: #f2dc1b; /* Fondo rojo */
+    color: white; /* Texto en blanco */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    z-index: 1;
+} 
+.archivo{
+    width: 100%;
+}
+#file-upload-button{
+    width:100px;
+}

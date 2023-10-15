@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Leer Archivo XLSX</title>
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <table id="dataTable" border="1"></table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const dataTable = document.getElementById('dataTable');
+        
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = (event) => {
+                const data = event.target.result;
+                const workbook = XLSX.read(data, { type: 'binary' });
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+
+                const htmlTable = XLSX.utils.sheet_to_html(sheet);
+                dataTable.innerHTML = htmlTable;
+
+                const tableCells = dataTable.querySelectorAll('td');
+                tableCells.forEach((cell) => {
+                    cell.addEventListener('click', () => {
+                        const text = cell.textContent;
+                        const textArea = document.createElement('textarea');
+                        textArea.value = text;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        alert('Texto copiado al portapapeles: ' + text);
+                    });
+                });
+            };
+
+            reader.readAsBinaryString(file);
+        });
+    </script>
+</body>
+</html>
