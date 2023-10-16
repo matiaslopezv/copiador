@@ -13,12 +13,11 @@
     
     <div class="input-group">
         <input type="file" class="form-control my-2" id="fileInput" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-        
-      </div>
+    </div>
    
-
+    <!-- AQUI CREAMOS LA TABLA Y APLICAMOS CLASES DE BOOTSTRAP -->
     <div class="table-responsive"> <!-- Agregamos una clase de Bootstrap para hacer la tabla receptiva -->
-        <table class="table table-warning table-bordered table-hover align-middle mb-1 bd-highlight" id="dataTable"></table> <!-- Aplicamos clases de Bootstrap a la tabla -->
+        <table class="table table-bordered table-hover align-middle mb-1 " id="dataTable"></table> <!-- Aplicamos clases de Bootstrap a la tabla -->
     </div>
     <div id="alertMessage" style="display: none;"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
@@ -68,7 +67,7 @@
                         textArea.select();
                         document.execCommand('copy');
                         document.body.removeChild(textArea);
-                        showAlert('Texto copiado al portapapeles ' );
+                        showAlert('Texto copiado al portapapeles' );
                     });
                 });
             };
